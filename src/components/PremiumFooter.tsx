@@ -13,6 +13,15 @@ import {
   Code,
   Coffee,
 } from "lucide-react";
+import { SiTelegram } from "react-icons/si";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function PremiumFooter() {
   const currentYear = new Date().getFullYear();
@@ -38,11 +47,11 @@ export default function PremiumFooter() {
 
   const services = [
     "Full-Stack Development",
-    "React & TypeScript",
+    "Flutter & Dart",
     "Node.js & APIs",
-    "Cloud Architecture",
-    "DevOps & CI/CD",
-    "Technical Consulting",
+    "Figma",
+    "PHP & Laravel",
+    "Web Hosting",
   ];
 
   return (
@@ -90,16 +99,14 @@ export default function PremiumFooter() {
                   Hlyan <span className="text-primary">Paing Aung</span>
                 </h3>
                 <p className="text-muted-foreground mobile-text">
-                  Full-Stack Jedi Engineer crafting digital experiences across
-                  the galaxy. Bringing balance to the Force, one line of code at
-                  a time.
+                  "Full‑stack developer turning product ideas into production‑ready, scalable software."
                 </p>
               </div>
 
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-primary" />
-                  <span>Remote Galaxy</span>
+                  <span>Yangon</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-primary" />
@@ -112,7 +119,7 @@ export default function PremiumFooter() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-primary" />
-                  <span>+1 (555) JEDI-DEV</span>
+                  <span>+959 957814423</span>
                 </div>
               </div>
             </motion.div>
@@ -181,20 +188,47 @@ export default function PremiumFooter() {
               </p>
 
               <div className="space-y-4">
-                <Button
-                  asChild
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group"
-                >
-                  <a
-                    href="https://t.me/Joyy969"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Start a Project on Telegram"
-                  >
-                    <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                    Start a Project
-                  </a>
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group">
+                      <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                      Start a Project
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Start a Project</DialogTitle>
+                      <DialogDescription>
+                        Choose how you'd like to get in touch.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <Button asChild className="w-full">
+                        <a
+                          href="https://t.me/Joyy969"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <SiTelegram className="w-4 h-4 mr-2" /> Telegram
+                        </a>
+                      </Button>
+                      <Button asChild variant="outline" className="w-full">
+                        <a
+                          href="http://linkedin.com/in/hlyan-paing-aung-a3035a379"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
+                        </a>
+                      </Button>
+                      <Button asChild variant="secondary" className="w-full">
+                        <a href="mailto:epctoy@gmail.com">
+                          <Mail className="w-4 h-4 mr-2" /> Email
+                        </a>
+                      </Button>
+                    </div>
+                  </DialogContent>
+                </Dialog>
 
                 <div className="flex gap-3">
                   {socialLinks.map((social, index) => {
