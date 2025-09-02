@@ -162,7 +162,7 @@ export default function DeathStarScene() {
       {/* Overlay text */}
       <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 text-center px-4">
         <p className="text-xs sm:text-sm text-muted-foreground">
-          Click and drag to explore • Scroll to zoom
+          ---
         </p>
       </div>
     </div>
