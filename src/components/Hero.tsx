@@ -65,7 +65,15 @@ export default function Hero() {
             </a>
 
             {/* View Projects */}
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+            <Button
+              variant="secondary"
+              size="lg"
+              className="w-full sm:w-auto"
+              onClick={() => {
+                const projectsSection = document.getElementById("projects");
+                projectsSection?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               View Projects
             </Button>
           </div>

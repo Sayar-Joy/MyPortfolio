@@ -2,11 +2,19 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { ExternalLink, Github, Star } from "lucide-react";
 import { SiFigma } from "react-icons/si";
 
 const projects = [
-    {
+  {
     title: "EcoKyats Backend Server",
     description:
       "Backend server for EcoKyats mobile app. Handles user authentication, data storage, and business logic.",
@@ -193,7 +201,7 @@ export default function Projects() {
                           className="flex-1"
                         >
                           <a
-                            href={project.live}
+                            href="https://www.figma.com/design/d8iwOCiSbTEOh10FyZoXx1/first?node-id=0-1&t=Er9Li2SDw6rCOLeS-1"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`View ${project.title} on Figma`}
@@ -204,37 +212,80 @@ export default function Projects() {
                         </Button>
                       ) : (
                         <>
-                          <Button
-                            asChild
-                            variant="default"
-                            size="sm"
-                            className="flex-1"
-                          >
-                            <a
-                              href={project.live}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <ExternalLink className="w-4 h-4 mr-1" />
-                              Live Demo
-                            </a>
-                          </Button>
+                          {project.title === "YGNTV Website" ? (
+                            <>
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <Button
+                                    variant="default"
+                                    size="sm"
+                                    className="flex-1"
+                                  >
+                                    <ExternalLink className="w-4 h-4 mr-1" />
+                                    Live Demo
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent>
+                                  <DialogHeader>
+                                    <DialogTitle>Live Demo</DialogTitle>
+                                    <DialogDescription>
+                                      Demo is not available right now.
+                                    </DialogDescription>
+                                  </DialogHeader>
+                                </DialogContent>
+                              </Dialog>
 
-                          <Button
-                            asChild
-                            variant="outline"
-                            size="sm"
-                            className="flex-1"
-                          >
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Github className="w-4 h-4 mr-1" />
-                              Code
-                            </a>
-                          </Button>
+                              <Button
+                                asChild
+                                variant="outline"
+                                size="sm"
+                                className="flex-1"
+                              >
+                                <a
+                                  href="https://github.com/Sayar-Joy/YGNTV"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Github className="w-4 h-4 mr-1" />
+                                  Code
+                                </a>
+                              </Button>
+                            </>
+                          ) : (
+                            <>
+                              <Button
+                                asChild
+                                variant="default"
+                                size="sm"
+                                className="flex-1"
+                              >
+                                <a
+                                  href={project.live}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <ExternalLink className="w-4 h-4 mr-1" />
+                                  Live Demo
+                                </a>
+                              </Button>
+
+                              <Button
+                                asChild
+                                variant="outline"
+                                size="sm"
+                                className="flex-1"
+                              >
+                                <a
+                                  href={project.github}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Github className="w-4 h-4 mr-1" />
+                                  Code
+                                </a>
+                              </Button>
+                            </>
+                          )}
                         </>
                       )}
                     </div>
